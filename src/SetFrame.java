@@ -1,8 +1,13 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
+import java.awt.Color;
 
 public class SetFrame extends JFrame {
-    JPanel configPanel;
+    configPanel configPanel;
     JMenuBar menuPanel;
     JPanel simulationPanel;
     SetFrame(){
@@ -11,9 +16,7 @@ public class SetFrame extends JFrame {
         this.setSize(1600,900);                       // 16:9 size 1600x900 pix
         this.setLayout(new BorderLayout());                       // using layout manager
 
-        configPanel = new JPanel();                               // creating left panel
-        configPanel.setPreferredSize(new Dimension(400,800)); // size 400x800px
-        configPanel.setBackground(Color.BLUE);                    // blue bgcolor
+        configPanel = new configPanel();
         this.add(configPanel,BorderLayout.WEST);                  // left aligned
 
         simulationPanel = new JPanel();                           // creating right panel
