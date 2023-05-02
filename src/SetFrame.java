@@ -32,5 +32,6 @@ public class SetFrame extends JFrame {
         this.setJMenuBar(menuPanel);                              // setting menu top
 
         this.setVisible(true);                                    //makes window visible
+
     }
 }
