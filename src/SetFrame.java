@@ -61,9 +61,16 @@ public class SetFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Example data generated!","Succes",JOptionPane.INFORMATION_MESSAGE);
             }
         }else if(e.getSource()==startButton){
-            BruteForce bruteSolution = new BruteForce(this.problemData);
-            this.simulationPanel.paintSolution(bruteSolution.getProblemSolution());
-            JOptionPane.showMessageDialog(null,"Problem solved!","Succes",JOptionPane.INFORMATION_MESSAGE);
+            if(this.configPanel.getMode()==0){
+                GreedyAlg greedySolution = new GreedyAlg(this.problemData);
+                this.simulationPanel.paintSolution(greedySolution.getSolution());
+                JOptionPane.showMessageDialog(null,"Problem solved gentle!","Succes",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                BruteForce bruteSolution = new BruteForce(this.problemData);
+                this.simulationPanel.paintSolution(bruteSolution.getProblemSolution());
+                JOptionPane.showMessageDialog(null,"Problem solved brutally!","Succes",JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
     }
 }

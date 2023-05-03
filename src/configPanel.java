@@ -8,6 +8,9 @@ public class configPanel extends JPanel {
     private JComboBox modeChoose;
     private JLabel previewLabel;
     private JButton startButton;
+    public int getMode(){
+        return this.modeChoose.getSelectedIndex();
+    }
 
     public JComboBox getModeChoose() {
         return modeChoose;

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DataGenerator {
     int rows; // number of rows - cities
     int cols; // number of cols - possible places
-    int[][] arr; // array informing does city has acces via this place
+    public int[][] arr; // array informing does city has acces via this place
     DataGenerator(int rows, int cols){       // generates data with given size and checks is correct
         this.rows=rows;
         this.cols=cols;
