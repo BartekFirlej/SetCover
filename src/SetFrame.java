@@ -67,7 +67,7 @@ public class SetFrame extends JFrame implements ActionListener {
                 DataGenerator newData = new DataGenerator(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
                 configPanel.getPreviewLabel().setText("<html>"+newData.getData().replaceAll("\n","<br/>")+"</html>");
                 this.remove(simulationPanel);
-                simulationPanel=new SimulationPanel(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
+                simulationPanel=new SimulationPanel(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()),newData);
                 this.add(simulationPanel,BorderLayout.EAST);
                 JOptionPane.showMessageDialog(null,"Example data generated!","Succes",JOptionPane.INFORMATION_MESSAGE);
             }

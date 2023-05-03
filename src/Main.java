@@ -6,4 +6,4 @@ public class Main {
         //DataGenerator newData = new DataGenerator("dane.txt");
         mainProgram.getConfigPanel().getColNumber();
     }
-}`
+}
