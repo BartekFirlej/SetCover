@@ -1,16 +1,46 @@
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class configPanel extends JPanel implements ActionListener {
-    JComboBox modeChoose;
-    JLabel previewLabel;
-    JButton startButton;
-    JButton generateButton;
-    JLabel summaryLabel;
-    JTextField rowNumber;
-    JTextField colNumber;
+public class configPanel extends JPanel {
+    private JComboBox modeChoose;
+    private JLabel previewLabel;
+    private JButton startButton;
+
+    public JComboBox getModeChoose() {
+        return modeChoose;
+    }
+
+    public JLabel getPreviewLabel() {
+        return previewLabel;
+    }
+
+    public JButton getStartButton() {
+        return startButton;
+    }
+
+    public JButton getGenerateButton() {
+        return generateButton;
+    }
+
+    public JLabel getSummaryLabel() {
+        return summaryLabel;
+    }
+
+    public JTextField getRowNumber() {
+        return rowNumber;
+    }
+
+    public JTextField getColNumber() {
+        return colNumber;
+    }
+
+    private JButton generateButton;
+    private JLabel summaryLabel;
+    private JTextField rowNumber;
+    private JTextField colNumber;
     configPanel(){
         this.setPreferredSize(new Dimension(400,800));  // setting size to 400x800px
         this.setBackground(Color.BLUE);                    // blue bgcolor
@@ -48,6 +78,7 @@ public class configPanel extends JPanel implements ActionListener {
         generateButton = new JButton();
         generateButton.setText("GENERATE");
         generateButton.setBounds(150,140,100,20);
+
         dataPanel.add(dataDescription);
         dataPanel.add(rowNumber);
         dataPanel.add(colNumber);
@@ -92,8 +123,5 @@ public class configPanel extends JPanel implements ActionListener {
         this.setVisible(true);                             // setting visibility of configPanel
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-    }
 }

@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -55,6 +56,18 @@ public class DataGenerator {
                 System.out.print(arr[i][j]);
             System.out.println();
         }
+    }
+
+    String  getData(){
+        StringBuilder text= new StringBuilder();
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                text.append(arr[i][j]);
+                text.append(" ");
+            }
+            text.append("\n");
+        }
+        return text.toString();
     }
 
     void exportData(String filePath) throws IOException {      // write data to text file
