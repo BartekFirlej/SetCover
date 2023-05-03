@@ -3,16 +3,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BruteForce {
-    DataGenerator problemData;
-    Set<Integer> problemSolution;
+    private DataGenerator problemData;
+    private Set<Integer> problemSolution;
 
     public Set<Integer> getProblemSolution() {
         return problemSolution;
     }
     BruteForce(DataGenerator problemData){
-        //problemData.printData();
-        //System.out.println();
-        //System.out.println();
         this.problemData=problemData;
         Set<Integer> allRows = new HashSet<Integer>();              // contains id for all rows
         Set<Integer> bestSolution = new HashSet<Integer>();         // contains temporary best solution (id of chosen cols)
@@ -27,7 +24,6 @@ public class BruteForce {
             int position = 0;                                 // position
             while(temp!=0){                          // changing to binary so 7 means 111
                 if(temp%2==1){
-                    //System.out.print(position);
                     tempSolution.add(position);                      // if this number contains this col add it to tempSolution
                     for(int j=0;j<problemData.getRowsNumber();j++)  //for all rows in this col
                         if(problemData.getArr()[j][position]==1)     // if this column covers row
@@ -40,6 +36,5 @@ public class BruteForce {
                 bestSolution=tempSolution;
         }
         this.problemSolution=bestSolution;
-        //System.out.println(this.problemSolution.toString());
     }
 }

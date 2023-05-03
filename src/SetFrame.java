@@ -9,9 +9,9 @@ public class SetFrame extends JFrame implements ActionListener {
     private configPanel configPanel;
     private JMenuBar menuPanel;
     private SimulationPanel simulationPanel;
-    public JButton startButton;
-    public JButton generateButton;
-    public DataGenerator problemData;
+    private JButton startButton;
+    private JButton generateButton;
+    private DataGenerator problemData;
 
 
     SetFrame(){
@@ -23,11 +23,6 @@ public class SetFrame extends JFrame implements ActionListener {
         configPanel = new configPanel();
         this.add(configPanel,BorderLayout.WEST);                  // left aligned
 
-        /*simulationPanel = new JPanel();                           // creating right panel
-        simulationPanel.setPreferredSize(new Dimension(1200,800)); //size 1200x800px
-        simulationPanel.setBackground(Color.RED);                  // red bgcolor
-        this.add(simulationPanel,BorderLayout.EAST);              // right aligned
-*/
         simulationPanel = new SimulationPanel(15,10);
         this.add(simulationPanel,BorderLayout.EAST);
 
@@ -38,11 +33,11 @@ public class SetFrame extends JFrame implements ActionListener {
         menuPanel.add(saveMenu);
         this.setJMenuBar(menuPanel);                              // setting menu top
 
-        this.startButton = this.configPanel.getStartButton();
-        this.generateButton = this.configPanel.getGenerateButton();
-        generateButton.addActionListener(this);
-
+        this.startButton = this.configPanel.getStartButton();        // adding reference to start button to make it clickable
+        this.generateButton = this.configPanel.getGenerateButton();  // adding reference to generate button to make it clickable
+        generateButton.addActionListener(this);                  //adds event on click on both buttons
         startButton.addActionListener(this);
+
         this.setVisible(true);                                    //makes window visible
 
     }

@@ -8,6 +8,10 @@ public class configPanel extends JPanel {
     private JComboBox modeChoose;
     private JLabel previewLabel;
     private JButton startButton;
+    private JButton generateButton;
+    private JLabel summaryLabel;
+    private JTextField rowNumber;
+    private JTextField colNumber;
     public int getMode(){
         return this.modeChoose.getSelectedIndex();
     }
@@ -37,10 +41,7 @@ public class configPanel extends JPanel {
     public JTextField getColNumber() {
         return colNumber;
     }
-    private JButton generateButton;
-    private JLabel summaryLabel;
-    private JTextField rowNumber;
-    private JTextField colNumber;
+
     configPanel(){
         this.setPreferredSize(new Dimension(400,900));  // setting size to 400x800px
         this.setBackground(Color.BLUE);                    // blue bgcolor
