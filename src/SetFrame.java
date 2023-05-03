@@ -66,10 +66,10 @@ public class SetFrame extends JFrame implements ActionListener {
             }else{
                 DataGenerator newData = new DataGenerator(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
                 configPanel.getPreviewLabel().setText("<html>"+newData.getData().replaceAll("\n","<br/>")+"</html>");
-                JOptionPane.showMessageDialog(null,"Example data generated!","Succes",JOptionPane.INFORMATION_MESSAGE);
                 this.remove(simulationPanel);
                 simulationPanel=new SimulationPanel(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
                 this.add(simulationPanel,BorderLayout.EAST);
+                JOptionPane.showMessageDialog(null,"Example data generated!","Succes",JOptionPane.INFORMATION_MESSAGE);
             }
         }else if(e.getSource()==startButton){
             System.out.println("START");
