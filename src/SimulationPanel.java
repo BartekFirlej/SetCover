@@ -1,11 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Set;
 
 public class SimulationPanel extends JPanel {
-    int colNumber;
-    int rowNumber;
-    JButton[][] arr;
-    SimulationPanel( int rows,int cols,DataGenerator ExampleData) {
+    public int colNumber;
+    public int rowNumber;
+    public JButton[][] arr;
+
+    public JButton[][] getArr() {
+        return arr;
+    }
+
+    SimulationPanel(int rows, int cols, DataGenerator ExampleData) {
         this.colNumber = cols;
         this.rowNumber = rows;
         this.setPreferredSize(new Dimension(1500, 800));
@@ -30,18 +36,12 @@ public class SimulationPanel extends JPanel {
         this.colNumber = cols;
         this.rowNumber = rows;
         this.setPreferredSize(new Dimension(1500, 800));
-        /*this.setBackground(Color.RED);
-        this.setLayout(new GridLayout(rowNumber, colNumber));
-
-        this.arr = new JButton[rowNumber][colNumber];
-        for (int i = 0; i < rowNumber; i++) {
-            for (int j = 0; j < colNumber; j++) {
-                arr[i][j] = new JButton(" ");
-                arr[i][j].setVisible(true);
-                this.add(arr[i][j]);
-            }
-        }*/
         this.setVisible(true);
     }
+    public void paintSolution(Set<Integer> problemSolution){
+        for(int i :problemSolution)
+            for(int j=0;j<rowNumber;j++)
+                this.arr[j][i].setBackground(Color.GREEN);
     }
+}
 

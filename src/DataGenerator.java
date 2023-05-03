@@ -101,6 +101,4 @@ public class DataGenerator {
             System.out.println("Plik nie istnieje");
         }
     }
-
-
 }

@@ -28,15 +28,12 @@ public class configPanel extends JPanel {
     public JLabel getSummaryLabel() {
         return summaryLabel;
     }
-
     public JTextField getRowNumber() {
         return rowNumber;
     }
-
     public JTextField getColNumber() {
         return colNumber;
     }
-
     private JButton generateButton;
     private JLabel summaryLabel;
     private JTextField rowNumber;

@@ -8,22 +8,11 @@ import java.awt.event.ActionListener;
 public class SetFrame extends JFrame implements ActionListener {
     private configPanel configPanel;
     private JMenuBar menuPanel;
-    private JPanel simulationPanel;
-
-    public configPanel getConfigPanel() {
-        return configPanel;
-    }
-
-    public JMenuBar getMenuPanel() {
-        return menuPanel;
-    }
-
-    public JPanel getSimulationPanel() {
-        return simulationPanel;
-    }
-
+    private SimulationPanel simulationPanel;
     public JButton startButton;
     public JButton generateButton;
+    public DataGenerator problemData;
+
 
     SetFrame(){
         this.setTitle("Set cover problem");                       // set title of window
@@ -64,15 +53,17 @@ public class SetFrame extends JFrame implements ActionListener {
             if(Integer.parseInt(configPanel.getRowNumber().getText())<=0 || Integer.parseInt(configPanel.getColNumber().getText())<=0){
                 JOptionPane.showMessageDialog(null,"Wrong value given!","Error",JOptionPane.ERROR_MESSAGE);
             }else{
-                DataGenerator newData = new DataGenerator(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
-                configPanel.getPreviewLabel().setText("<html>"+newData.getData().replaceAll("\n","<br/>")+"</html>");
+                this.problemData = new DataGenerator(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()));
+                configPanel.getPreviewLabel().setText("<html>"+this.problemData.getData().replaceAll("\n","<br/>")+"</html>");
                 this.remove(simulationPanel);
-                simulationPanel=new SimulationPanel(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()),newData);
+                simulationPanel=new SimulationPanel(Integer.parseInt(configPanel.getRowNumber().getText()),Integer.parseInt(configPanel.getColNumber().getText()),this.problemData);
                 this.add(simulationPanel,BorderLayout.EAST);
                 JOptionPane.showMessageDialog(null,"Example data generated!","Succes",JOptionPane.INFORMATION_MESSAGE);
             }
         }else if(e.getSource()==startButton){
-            System.out.println("START");
+            BruteForce bruteSolution = new BruteForce(this.problemData);
+            this.simulationPanel.paintSolution(bruteSolution.getProblemSolution());
+            JOptionPane.showMessageDialog(null,"Problem solved!","Succes",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
