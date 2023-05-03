@@ -10,7 +10,7 @@ public class SimulationPanel extends JPanel {
         this.rowNumber = rows;
         this.setPreferredSize(new Dimension(1500, 800));
         this.setLayout(new GridLayout(rowNumber, colNumber,2,2));
-
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         this.arr = new JButton[rowNumber][colNumber];
         for (int i = 0; i < rowNumber; i++) {
             for (int j = 0; j < colNumber; j++) {
